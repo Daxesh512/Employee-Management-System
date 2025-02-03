@@ -61,7 +61,7 @@ class EmployeeController extends Controller
             'email' => 'required|email|unique:employees',
             'phone' => 'required|numeric|digits:10',
             'position' => 'required',
-            'salary' => 'required|numeric|min:0',
+            'salary' => 'required|numeric|gt:0', 
         ], [
             'name.required' => 'Name is required.',
             'name.min' => 'Name must be at least 3 characters long.',
@@ -74,7 +74,7 @@ class EmployeeController extends Controller
             'position.required' => 'Position should not be empty.',
             'salary.required' => 'Salary is required.',
             'salary.numeric' => 'Salary must be numeric.',
-            'salary.min' => 'Salary must be greater than 0.',
+            'salary.gt' => 'Salary must be greater than 0.', 
         ]);
     
         if ($validator->fails()) {
